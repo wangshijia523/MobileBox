@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB855362-111E-41EB-9E7B-1CCFCC08ACBD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobileBox</RootNamespace>
+    <AssemblyName>MobileBox</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>box_128px_1227736_easyicon.net.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSAPI">
+      <HintPath>E:\搞机助手\DSAPI.DLL</HintPath>
+    </Reference>
+    <Reference Include="DSControls, Version=1.0.7047.28688, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DirFile.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCopy.Designer.cs">
+      <DependentUpon>FormCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDel.Designer.cs">
+      <DependentUpon>FormDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImage.Designer.cs">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRemote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRemote.Designer.cs">
+      <DependentUpon>FormRemote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResolution.Designer.cs">
+      <DependentUpon>FormResolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServer.Designer.cs">
+      <DependentUpon>FormServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSwitch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSwitch.Designer.cs">
+      <DependentUpon>FormSwitch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUploa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUploa.Designer.cs">
+      <DependentUpon>FormUploa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteConnect.cs" />
+    <Compile Include="WMI.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCopy.resx">
+      <DependentUpon>FormCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDel.resx">
+      <DependentUpon>FormDel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImage.resx">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRemote.resx">
+      <DependentUpon>FormRemote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResolution.resx">
+      <DependentUpon>FormResolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServer.resx">
+      <DependentUpon>FormServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSwitch.resx">
+      <DependentUpon>FormSwitch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUploa.resx">
+      <DependentUpon>FormUploa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teamviewer_32px_1194695_easyicon.net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_picture_37.161290322581px_1185618_easyicon.net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="box_128px_1227736_easyicon.net.ico" />
+    <Content Include="DSControls.dll" />
+    <None Include="Resources\allshare_48px_1105315_easyicon.net.png" />
+    <None Include="Resources\type23.png" />
+    <None Include="Resources\type2%281%29.png" />
+    <None Include="Resources\type22.png" />
+    <None Include="Resources\type14.png" />
+    <None Include="Resources\type21.png" />
+    <None Include="Resources\GetGlue_32px_1076661_easyicon.net.png" />
+    <None Include="Resources\delete_48px_1128280_easyicon.net.png" />
+    <None Include="Resources\删_除_1.png" />
+    <None Include="Resources\skull_32px_1082340_easyicon.net.png" />
+    <None Include="Resources\play_32px_1082335_easyicon.net.png" />
+    <None Include="Resources\check_32px_1082324_easyicon.net.png" />
+    <None Include="Resources\check_32px_1071135_easyicon.net.png" />
+    <None Include="Resources\check_48px_1071135_easyicon.net.png" />
+    <None Include="Resources\upload_32px_1133673_easyicon.net.png" />
+    <None Include="Resources\office_upload_center_32px_1078828_easyicon.net.png" />
+    <None Include="Resources\Settings_Switch_48px_1188508_easyicon.net.png" />
+    <None Include="Resources\upload_48px_1204394_easyicon.net1.png" />
+    <None Include="Resources\MB_taskmgr_copy_48px_559890_easyicon.net.png" />
+    <None Include="Resources\resolution_Monitors_Monitor_48px_515445_easyicon.net.png" />
+    <None Include="Resources\resolution_53.462304409673px_1218196_easyicon.net.png" />
+    <None Include="Resources\resolution_71.28307254623px_1218196_easyicon.net.png" />
+    <None Include="Resources\Instagram_31.652173913043px_1138816_easyicon.net.png" />
+    <None Include="Resources\type13.png" />
+    <None Include="Resources\type12.png" />
+    <None Include="Resources\type11.png" />
+    <None Include="Resources\type3.png" />
+    <None Include="Resources\type4.png" />
+    <None Include="Resources\type2.png" />
+    <None Include="Resources\type1.png" />
+    <None Include="Resources\ht.png" />
+    <None Include="Resources\start_32px_1169786_easyicon.net.png" />
+    <None Include="Resources\copy_32px_1230182_easyicon.net1.png" />
+    <None Include="Resources\copy_32px_1230182_easyicon.net.png" />
+    <None Include="Resources\down_arrow_32px_1236472_easyicon.net.png" />
+    <None Include="Resources\up_arrow_32px_1236473_easyicon.net.png" />
+    <None Include="Resources\up_arrow_32px_1236474_easyicon.net.png" />
+    <None Include="Resources\slider_tool_32px_1211522_easyicon.net.png" />
+    <None Include="Resources\box_174.606271777px_1227736_easyicon.net.png" />
+    <None Include="Resources\Settings_Switch_32px_1188508_easyicon.net.png" />
+    <None Include="Resources\information_32px_1221658_easyicon.net.png" />
+    <None Include="Resources\spider_web_32.414910858995px_1237284_easyicon.net.png" />
+    <None Include="Resources\upload_32px_1204394_easyicon.net.png" />
+    <None Include="Resources\upload_48px_1204394_easyicon.net.png" />
+    <None Include="Resources\resolution_32px_27680_easyicon.net.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
