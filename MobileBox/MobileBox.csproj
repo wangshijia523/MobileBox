@@ -162,8 +162,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
-    <None Include="packages\MetroModernUI.1.4.0.0\.signature.p7s" />
-    <None Include="packages\MetroModernUI.1.4.0.0\MetroModernUI.1.4.0.0.nupkg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -186,11 +184,6 @@
   <ItemGroup>
     <Content Include="box_128px_1227736_easyicon.net.ico" />
     <Content Include="DSControls.dll" />
-    <Content Include="packages\DSAPI.DLL" />
-    <Content Include="packages\DSControls.dll" />
-    <Content Include="packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll" />
-    <Content Include="packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll" />
-    <Content Include="packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll" />
     <None Include="Resources\allshare_48px_1105315_easyicon.net.png" />
     <None Include="Resources\type23.png" />
     <None Include="Resources\type2%281%29.png" />
