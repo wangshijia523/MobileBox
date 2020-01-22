@@ -65,6 +65,7 @@
             this.AllButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AllButton.UseVisualStyleBackColor = false;
             this.AllButton.Click += new System.EventHandler(this.AllButton_Click);
+            this.AllButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // SjmyButton
             // 
@@ -84,6 +85,7 @@
             this.SjmyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SjmyButton.UseVisualStyleBackColor = false;
             this.SjmyButton.Click += new System.EventHandler(this.SjmyButton_Click);
+            this.SjmyButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // MyhtButton
             // 
@@ -103,6 +105,7 @@
             this.MyhtButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MyhtButton.UseVisualStyleBackColor = false;
             this.MyhtButton.Click += new System.EventHandler(this.MyhtButton_Click);
+            this.MyhtButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // XfmyButton
             // 
@@ -122,8 +125,9 @@
             this.XfmyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.XfmyButton.UseVisualStyleBackColor = false;
             this.XfmyButton.Click += new System.EventHandler(this.XfmyButton_Click);
+            this.XfmyButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
-            // PcmyDel
+            // PcmyButton
             // 
             this.PcmyButton.BackColor = System.Drawing.Color.Transparent;
             this.PcmyButton.FlatAppearance.BorderSize = 0;
@@ -134,13 +138,14 @@
             this.PcmyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PcmyButton.Location = new System.Drawing.Point(396, 350);
             this.PcmyButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.PcmyButton.Name = "PcmyDel";
+            this.PcmyButton.Name = "PcmyButton";
             this.PcmyButton.Size = new System.Drawing.Size(102, 46);
             this.PcmyButton.TabIndex = 27;
             this.PcmyButton.Text = "简体";
             this.PcmyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PcmyButton.UseVisualStyleBackColor = false;
             this.PcmyButton.Click += new System.EventHandler(this.PcmyButton_Click);
+            this.PcmyButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // sjmyPanel
             // 
@@ -180,6 +185,7 @@
             this.sjmyPanel.背景色透明度 = 1F;
             this.sjmyPanel.锚定另一个 = null;
             this.sjmyPanel.锚定间距 = 10;
+            this.sjmyPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // myhtPanel
             // 
@@ -220,6 +226,7 @@
             this.myhtPanel.背景色透明度 = 1F;
             this.myhtPanel.锚定另一个 = null;
             this.myhtPanel.锚定间距 = 10;
+            this.myhtPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // pcmyPanel
             // 
@@ -259,6 +266,7 @@
             this.pcmyPanel.背景色透明度 = 1F;
             this.pcmyPanel.锚定另一个 = null;
             this.pcmyPanel.锚定间距 = 10;
+            this.pcmyPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // xfmyPanel
             // 
@@ -298,6 +306,7 @@
             this.xfmyPanel.背景色透明度 = 1F;
             this.xfmyPanel.锚定另一个 = null;
             this.xfmyPanel.锚定间距 = 10;
+            this.xfmyPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // GetButton
             // 
@@ -317,6 +326,7 @@
             this.GetButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.GetButton.UseVisualStyleBackColor = false;
             this.GetButton.Click += new System.EventHandler(this.GetButton_Click);
+            this.GetButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // pictureBox1
             // 
@@ -327,6 +337,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AllButton_MouseMove);
             // 
             // FormDel
             // 

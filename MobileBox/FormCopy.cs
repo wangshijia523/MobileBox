@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DSControls;
@@ -113,18 +105,6 @@ namespace MobileBox
         private void ScriptTextBox_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
-        }
-
-        private void startButton_Click(object sender, EventArgs e)
-        {
-
-            if (NewBaseTextBox.Text == string.Empty)
-            {
-                MessageBox.Show(@"请先选择游戏项目");
-                return;
-            }
-            var task = new Task(Start);
-            task.Start();
         }
 
         private void Start()
@@ -506,6 +486,11 @@ namespace MobileBox
         private void FormCopy_MouseMove(object sender, MouseEventArgs e)
         {
             Activate();
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

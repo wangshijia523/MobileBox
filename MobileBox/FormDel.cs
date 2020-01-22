@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿
+using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DSControls;
+using MetroFramework.Forms;
 
 namespace MobileBox
 {
+
     public partial class FormDel : MetroFramework.Forms.MetroForm
     {
         public FormDel()
@@ -27,7 +24,7 @@ namespace MobileBox
         {
             SetAllEnabled(false);
 
-                        var pcmyY = 8;
+            var pcmyY = 8;
             var xfmyY = 8;
             var myhtY = 8;
             var sjmyY = 8;
@@ -290,14 +287,19 @@ namespace MobileBox
 
 
         /// <summary>
-        /// 设置所有控件的Enabled
+        /// 设置所有控件的Enabled,忽略最小化控件
         /// </summary>
         /// <param name="flag"></param>
         private void SetAllEnabled(bool flag)
         {
             foreach (Control control in Controls)
             {
+                if (control.Text == @"r" || control.Text == @"1"||control.Text == @"0")
+                {
+                   continue;
+                }
                 control.Enabled = flag;
+
             }
         }
 
@@ -354,7 +356,10 @@ namespace MobileBox
             }
         }
 
-
+        private void AllButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            Activate();
+        }
     }
 }
     
