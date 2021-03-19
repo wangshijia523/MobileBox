@@ -9,9 +9,9 @@ using MetroFramework.Forms;
 namespace MobileBox
 {
 
-    public partial class FormDel : MetroFramework.Forms.MetroForm
+    public partial class FormClear : MetroFramework.Forms.MetroForm
     {
-        public FormDel()
+        public FormClear()
         {
             TopMost = true;
             InitializeComponent();
@@ -31,6 +31,9 @@ namespace MobileBox
             var myhtY = 8;
             var sjmyY = 8;
             var pczfY = 8;
+            var xsjmyY = 8;
+            var pbzY = 8;
+            var repairY = 8;
 
             pcmyPanel.Panel.Controls.Clear();
             xfmyPanel.Panel.Controls.Clear();
@@ -39,45 +42,40 @@ namespace MobileBox
             myhtPanel.Panel.Controls.Clear();
             sjmyPanel.Panel.Controls.Clear();
             pczfPanel.Panel.Controls.Clear();
+            xsjmyPanel.Panel.Controls.Clear();
+            pbzPanel.Panel.Controls.Clear();
+            repairPanel.Panel.Controls.Clear();
 
-            RemoteConnect.ConnectState(@"\\192.168.9.179", "qadwnew", "qadwnew123.");
-            RemoteConnect.ConnectState(@"\\172.24.140.83", "qadwnew", "qadwnew123.");
-            RemoteConnect.ConnectState(@"\\172.24.140.84", "root", "tqqa991969");
-            var theFolder = new DirectoryInfo(@"\\192.168.9.179\data");
+            var resultLimit = 14;
+            var repairLiminit = 30;
+
+            RemoteConnect.ConnectState(@"\\192.168.255.241", "blacknull", "ndqatest2021.*+");
+
+            var theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\pcmy");
             foreach (var nextFile in theFolder.GetDirectories())
             {
-                if (nextFile.Name.StartsWith("pcmy_autotest") && !nextFile.Name.Contains("xf")) //简体
-                {
-                    var ds = new CheckBox()
-                    {
-                        Checked = true,
-                        Text = nextFile.Name,
-                        AutoSize = true,
-                        Location = new Point(8, pcmyY),
-                        //描边颜色 = Color.Transparent,
-                        ForeColor = Color.Crimson
-                    };
-                    pcmyY += 20;
-                    AddPcmy(ds);
-
-                }
-                else if (nextFile.Name.StartsWith("pcmy_autotest") && nextFile.Name.Contains("xf"))
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\pcmy", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
                 {
                     var ds = new CheckBox
                     {
                         Checked = true,
                         Text = nextFile.Name,
-                        Location = new Point(8, xfmyY),
+                        Location = new Point(8, pcmyY),
                         AutoSize = true,
                         //描边颜色 = Color.Transparent,
                         ForeColor = Color.Crimson
-
                     };
-                    xfmyY += 20;
-                    AddXfmy(ds);
-
+                    pcmyY += 20;
+                    AddPcmy(ds);
                 }
-                else if (nextFile.Name.StartsWith("enmy_autotest"))
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\enmy");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\enmy", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
                 {
                     var ds = new CheckBox
                     {
@@ -87,13 +85,37 @@ namespace MobileBox
                         AutoSize = true,
                         //描边颜色 = Color.Transparent,
                         ForeColor = Color.Crimson
-
                     };
                     enmyY += 20;
                     AddEnmy(ds);
-
                 }
-                else if (nextFile.Name.StartsWith("pcmore_autotest") || nextFile.Name.StartsWith("hjmy_autotest") || nextFile.Name.StartsWith("sjbmy_autotest") || nextFile.Name.StartsWith("bossmy_autotest") || nextFile.Name.StartsWith("tsfhs_autotest") || nextFile.Name.StartsWith("tsfqm_autotest") || nextFile.Name.StartsWith("myzs_autotest"))
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\PBZ");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\PBZ", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
+                {
+                    var ds = new CheckBox
+                    {
+                        Checked = true,
+                        Text = nextFile.Name,
+                        Location = new Point(8, pbzY),
+                        AutoSize = true,
+                        //描边颜色 = Color.Transparent,
+                        ForeColor = Color.Crimson
+                    };
+                    pbzY += 20;
+                    AddPbz(ds);
+                }
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\pcmore");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\pcmore", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
                 {
                     var ds = new CheckBox
                     {
@@ -103,13 +125,98 @@ namespace MobileBox
                         AutoSize = true,
                         //描边颜色 = Color.Transparent,
                         ForeColor = Color.Crimson
-
                     };
                     pcmoreY += 20;
                     AddPcmore(ds);
-
                 }
-                else if (nextFile.Name.StartsWith("myht_autotest") || nextFile.Name.StartsWith("myht_again"))
+            }
+
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\pcxf");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\pcxf", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
+                {
+                    var ds = new CheckBox
+                    {
+                        Checked = true,
+                        Text = nextFile.Name,
+                        Location = new Point(8, xfmyY),
+                        AutoSize = true,
+                        //描边颜色 = Color.Transparent,
+                        ForeColor = Color.Crimson
+                    };
+                    xfmyY += 20;
+                    AddXfmy(ds);
+                }
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\pczf");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\pczf", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
+                {
+                    var ds = new CheckBox
+                    {
+                        Checked = true,
+                        Text = nextFile.Name,
+                        Location = new Point(8, pczfY),
+                        AutoSize = true,
+                        //描边颜色 = Color.Transparent,
+                        ForeColor = Color.Crimson
+                    };
+                    pczfY += 20;
+                    AddPczf(ds);
+                }
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\sjmy");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\sjmy", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
+                {
+                    var ds = new CheckBox
+                    {
+                        Checked = true,
+                        Text = nextFile.Name,
+                        Location = new Point(8, sjmyY),
+                        AutoSize = true,
+                        //描边颜色 = Color.Transparent,
+                        ForeColor = Color.Crimson
+                    };
+                    sjmyY += 20;
+                    AddSjmy(ds);
+                }
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\xsjmy");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\xsjmy", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
+                {
+                    var ds = new CheckBox
+                    {
+                        Checked = true,
+                        Text = nextFile.Name,
+                        Location = new Point(8, xsjmyY),
+                        AutoSize = true,
+                        //描边颜色 = Color.Transparent,
+                        ForeColor = Color.Crimson
+                    };
+                    xsjmyY += 20;
+                    AddXsjmy(ds);
+                }
+            }
+
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\myht");
+            foreach (var nextFile in theFolder.GetDirectories())
+            {
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\myht", nextFile.ToString());
+                if (getDateTimeDiff(nextFile.LastWriteTime) > resultLimit)
                 {
                     var ds = new CheckBox
                     {
@@ -122,66 +229,33 @@ namespace MobileBox
                     };
                     myhtY += 20;
                     AddMyht(ds);
-
                 }
-
             }
 
-            theFolder = new DirectoryInfo(@"\\172.24.140.83\data");
-
-            foreach (var nextFile in theFolder.GetDirectories())
+            theFolder = new DirectoryInfo(@"\\192.168.255.241\upload\维护");
+            foreach (var nextFilea in theFolder.GetDirectories())
             {
-                if ((nextFile.Name.StartsWith("sjmy_autotest") || nextFile.Name.StartsWith("sjmy_again")) &&
-                    !nextFile.Name.Contains("init") && nextFile.Name!= "sjmy_autotest_50802")
-
+                var filePath = Path.Combine(@"\\192.168.255.241\upload\维护", nextFilea.ToString());
+                var childreForlder = new DirectoryInfo(filePath);
+                foreach (var nextFile in childreForlder.GetDirectories())
                 {
-                    if (getDateTimeDiff(nextFile.LastWriteTime) > 7)
+                    if (getDateTimeDiff(nextFile.LastWriteTime) > repairLiminit)
                     {
                         var ds = new CheckBox
                         {
                             Checked = true,
-                            Text = nextFile.Name,
-                            Location = new Point(8, sjmyY),
+                            Text = Path.Combine(nextFilea.ToString(), nextFile.Name),
+                            Location = new Point(8, repairY),
                             AutoSize = true,
                             //描边颜色 = Color.Transparent,
                             ForeColor = Color.Crimson
                         };
-                        sjmyY += 20;
-                        AddSjmy(ds);
+                        repairY += 20;
+                        AddRepair(ds);
                     }
                 }
             }
-
-            theFolder = new DirectoryInfo(@"\\172.24.140.84\data");
-
-            foreach (var nextFile in theFolder.GetDirectories())
-            {
-                if (nextFile.Name.StartsWith("cnzfauto"))
-                {
-                    if (nextFile.Name.StartsWith("cnzfauto") && nextFile.Name!= "cnzfauto1601005297246") {
-                        var ds = new CheckBox
-                        {
-                            Checked = true,
-                            Text = nextFile.Name,
-                            Location = new Point(8, pczfY),
-                            AutoSize = true,
-                            //描边颜色 = Color.Transparent,
-                            ForeColor = Color.Crimson
-                        };
-                        pczfY += 20;
-                        AddPczf(ds);
-                    }
-                }
-            }
-
             SetAllEnabled(true);
-        }
-
-        private void GetButton_Click(object sender, EventArgs e)
-        {
-            var task = new Task(GetData);
-            task.Start();
-
         }
 
         private int getDateTimeDiff(DateTime fileTime)
@@ -191,6 +265,13 @@ namespace MobileBox
             DateTime dt2 = Convert.ToDateTime(DateTime.Now.ToString());
             TimeSpan span = dt2.Subtract(dt1);
             return span.Days;
+
+        }
+
+        private void GetButton_Click(object sender, EventArgs e)
+        {
+            var task = new Task(GetData);
+            task.Start();
 
         }
 
@@ -206,7 +287,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\192.168.9.179\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\pcmy\{ck.Text}");
                         }
                     }
                 }
@@ -245,7 +326,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\192.168.9.179\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\pcxf\{ck.Text}");
                         }
 
                     }
@@ -285,7 +366,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\192.168.9.179\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\enmy\{ck.Text}");
                         }
 
                     }
@@ -325,7 +406,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\192.168.9.179\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\pcmore\{ck.Text}");
                         }
 
                     }
@@ -366,7 +447,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\192.168.9.179\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\myht\{ck.Text}");
                         }
                     }
                 }
@@ -403,7 +484,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\172.24.140.83\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\sjmy\{ck.Text}");
                         }
                     }
                 }
@@ -440,7 +521,7 @@ namespace MobileBox
                     {
                         if (ck.Checked)
                         {
-                            DirFile.DeleteDirectory($@"\\172.24.140.84\data\{ck.Text}");
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\pczf\{ck.Text}");
                         }
                     }
                 }
@@ -450,6 +531,7 @@ namespace MobileBox
                 }
             }
         }
+
         private void PczfDel()
         {
             SetAllEnabled(false);
@@ -460,6 +542,114 @@ namespace MobileBox
         private void PczfButton_Click(object sender, EventArgs e)
         {
             var task = new Task(PczfDel);
+            task.Start();
+        }
+        #endregion
+
+        #region  Xsjmy删除按钮
+        private void XsjmyDelete()
+        {
+            foreach (var variable in xsjmyPanel.Panel.Controls)
+            {
+                try
+                {
+                    if (variable is CheckBox ck)
+                    {
+                        if (ck.Checked)
+                        {
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\xsjmy\{ck.Text}");
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }
+        }
+
+        private void XsjmyDel()
+        {
+            SetAllEnabled(false);
+            XsjmyDelete();
+            //SetAllEnabled(true);
+            GetData();
+        }
+        private void XsjmyButton_Click(object sender, EventArgs e)
+        {
+            var task = new Task(XsjmyDel);
+            task.Start();
+        }
+        #endregion
+
+        #region  Pbz删除按钮
+        private void PbzDelete()
+        {
+            foreach (var variable in pbzPanel.Panel.Controls)
+            {
+                try
+                {
+                    if (variable is CheckBox ck)
+                    {
+                        if (ck.Checked)
+                        {
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\PBZ\{ck.Text}");
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }
+        }
+        private void PbzDel()
+        {
+            SetAllEnabled(false);
+            PbzDelete();
+            //SetAllEnabled(true);
+            GetData();
+        }
+        private void PbzButton_Click(object sender, EventArgs e)
+        {
+            var task = new Task(PbzDel);
+            task.Start();
+
+        }
+        #endregion
+
+        #region  repair删除按钮
+        private void RepairDelete()
+        {
+            foreach (var variable in repairPanel.Panel.Controls)
+            {
+                try
+                {
+                    if (variable is CheckBox ck)
+                    {
+                        if (ck.Checked)
+                        {
+                            DirFile.DeleteDirectory($@"\\192.168.255.241\upload\维护\{ck.Text}");
+                            //var filePath = $@"\\192.168.255.241\upload\维护\{ck.Text}";
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }
+        }
+        private void RepairDel()
+        {
+            SetAllEnabled(false);
+            RepairDelete();
+            //SetAllEnabled(true);
+            GetData();
+        }
+        private void RepairButton_Click(object sender, EventArgs e)
+        {
+            var task = new Task(RepairDel);
             task.Start();
 
         }
@@ -475,6 +665,9 @@ namespace MobileBox
             MyhtDelete();
             SjmyDelete();
             PczfDelete();
+            XsjmyDelete();
+            PbzDelete();
+            RepairDelete();
             GetData();
         }
         private void AllButton_Click(object sender, EventArgs e)
@@ -503,6 +696,7 @@ namespace MobileBox
         }
 
         private delegate void AddDelegate(CheckBox name);
+
         private void AddPcmy(CheckBox name)
         {
             if (pcmyPanel.InvokeRequired)
@@ -542,7 +736,6 @@ namespace MobileBox
                 enmyPanel.Panel.Controls.Add(name);
             }
         }
-
         private void AddPcmore(CheckBox name)
         {
             if (pcmorePanel.InvokeRequired)
@@ -591,7 +784,42 @@ namespace MobileBox
                 pczfPanel.Panel.Controls.Add(name);
             }
         }
-
+        private void AddXsjmy(CheckBox name)
+        {
+            if (xsjmyPanel.InvokeRequired)
+            {
+                AddDelegate ad = AddXsjmy;
+                xsjmyPanel.Panel.Invoke(ad, name);
+            }
+            else
+            {
+                xsjmyPanel.Panel.Controls.Add(name);
+            }
+        }
+        private void AddPbz(CheckBox name)
+        {
+            if (pbzPanel.InvokeRequired)
+            {
+                AddDelegate ad = AddPbz;
+                pbzPanel.Panel.Invoke(ad, name);
+            }
+            else
+            {
+                pbzPanel.Panel.Controls.Add(name);
+            }
+        }
+        private void AddRepair(CheckBox name)
+        {
+            if (repairPanel.InvokeRequired)
+            {
+                AddDelegate ad = AddRepair;
+                repairPanel.Panel.Invoke(ad, name);
+            }
+            else
+            {
+                repairPanel.Panel.Controls.Add(name);
+            }
+        }
         private void AllButton_MouseMove(object sender, MouseEventArgs e)
         {
             Activate();
@@ -600,4 +828,3 @@ namespace MobileBox
     }
 }
     
-

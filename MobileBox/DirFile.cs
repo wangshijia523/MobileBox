@@ -21,6 +21,7 @@ namespace MobileBox
         }
         #endregion
 
+
         #region 检测指定文件是否存在,如果存在返回true
         /// <summary>
         /// 检测指定文件是否存在,如果存在则返回true。

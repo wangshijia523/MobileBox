@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DSAPI">
-      <HintPath>E:\搞机助手\DSAPI.DLL</HintPath>
+      <HintPath>..\packages\DSAPI.DLL</HintPath>
     </Reference>
     <Reference Include="DSControls, Version=1.0.7047.28688, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -50,6 +50,12 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>.\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,11 +78,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCopy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCopy.Designer.cs">
       <DependentUpon>FormCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClear.Designer.cs">
+      <DependentUpon>FormClear.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDel.cs">
       <SubType>Form</SubType>
@@ -120,15 +138,25 @@
     <Compile Include="FormUploa.Designer.cs">
       <DependentUpon>FormUploa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTPHelper.cs" />
+    <Compile Include="get64segmentIP.cs" />
+    <Compile Include="MySqlHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoteConnect.cs" />
+    <Compile Include="RunCmd.cs" />
     <Compile Include="WMI.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCopy.resx">
       <DependentUpon>FormCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClear.resx">
+      <DependentUpon>FormClear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDel.resx">
       <DependentUpon>FormDel.cs</DependentUpon>
@@ -138,6 +166,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRemote.resx">
       <DependentUpon>FormRemote.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResolution.resx">
       <DependentUpon>FormResolution.cs</DependentUpon>
@@ -184,6 +213,13 @@
   <ItemGroup>
     <Content Include="box_128px_1227736_easyicon.net.ico" />
     <Content Include="DSControls.dll" />
+    <None Include="Resources\删 除.png" />
+    <None Include="Resources\fcmType.png" />
+    <None Include="Resources\repairType1.jpg" />
+    <None Include="Resources\repairType.jpg" />
+    <None Include="Resources\clear_48px_1128280_easyicon.net1.jpg" />
+    <None Include="Resources\type31.png" />
+    <None Include="Resources\type24.png" />
     <None Include="Resources\allshare_48px_1105315_easyicon.net.png" />
     <None Include="Resources\type23.png" />
     <None Include="Resources\type2%281%29.png" />

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DSControls;
+using System.Management;
 
 namespace MobileBox
 {
@@ -30,7 +31,7 @@ namespace MobileBox
                     {
                         if (course.Checked)
                         {
-                            ShowMsg($"{ip.Text}残余：" + Wmi.SelectProcess(ip.Text, "administrator", "www.91.com.", course.Text));
+                            ShowMsg($"{ip.Text}残余：" + Wmi.SelectProcess(ip.Text, "blacknull", "ndqatest2021.*+", course.Text));
                         }
                     }
                 }
@@ -52,11 +53,22 @@ namespace MobileBox
             {
                 if (ip.Checked)
                 {
+                    var co = new ConnectionOptions();
+                    var machineName = ip.Text; // 连接的目标机的IP地址或者机器名
+                    co.Username = "blacknull";         // 连接需要的用户名
+                    co.Password = "ndqatest2021.*+";      // 连接需要的密码
+                    var scope = new ManagementScope("\\\\" + machineName + "\\root\\cimv2", co);
+                    scope.Options.Impersonation = ImpersonationLevel.Impersonate;
+                    scope.Options.EnablePrivileges = true;
+                    scope.Connect();
+
                     foreach (DS复选框 course in coursePanel.Panel.Controls)
                     {
                         if (course.Checked)
                         {
-                            ShowMsg($"{ip.Text}关闭：" + Wmi.CloseProcess(ip.Text, "administrator", "www.91.com.", course.Text));
+                            ShowMsg($"{ip.Text}关闭：" + Wmi.CloseProcess(course.Text, scope));
+                            System.Threading.Thread.Sleep(200);
+                            //ShowMsg($"{ip.Text}关闭：" + Wmi.CloseProcess(course.Text, "blacknull", "ndqatest2021.*+", course.Text));
                         }
                     }
                 }
@@ -77,13 +89,15 @@ namespace MobileBox
             {
                 if (ip.Checked)
                 {
-                    if (ip.Text == "192.168.64.105")
+                    if (ip.Text == "192.168.255.131")
                     {
-                        ShowMsg($"{ip.Text}开启：" + Wmi.OpenProcess(ip.Text, "administrator", "www.91.com.",
-                            $@"D:\developer\平台控制器\{comboHQ.Text}", "03"));
+                        ShowMsg($"{ip.Text}开启：" + Wmi.OpenProcess(ip.Text, "blacknull", "ndqatest2021.*+",
+                            $@"D:\developer\平台控制器\{comboHQ.Text}"));
+                        System.Threading.Thread.Sleep(3000);
                     }
-                    ShowMsg($"{ip.Text}开启：" + Wmi.OpenProcess(ip.Text, "administrator", "www.91.com.",
-                        $@"D:\developer\平台控制器\{comboBranch.Text}", "02"));
+                    ShowMsg($"{ip.Text}开启：" + Wmi.OpenProcess(ip.Text, "blacknull", "ndqatest2021.*+",
+                        $@"D:\developer\平台控制器\{comboBranch.Text}"));
+                    System.Threading.Thread.Sleep(1000);
                 }
 
                
@@ -104,11 +118,11 @@ namespace MobileBox
             if (logTextBox.InvokeRequired)
             {
                 Textbdelegate dt = ShowMsg;
-                logTextBox.Invoke(dt, msg + "\t\n");
+                logTextBox.Invoke(dt, msg );
             }
             else
             {
-                logTextBox.AppendText(DateTime.Now.ToString("HH:mm:ss") + ":    " + msg + "\t\n");
+                logTextBox.AppendText(DateTime.Now.ToString("HH:mm:ss") + ":    " + msg + "\r\n");
             }
         }
 

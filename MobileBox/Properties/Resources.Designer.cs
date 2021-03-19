@@ -113,6 +113,16 @@ namespace MobileBox.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap clear_48px_1128280_easyicon_net {
+            get {
+                object obj = ResourceManager.GetObject("clear_48px_1128280_easyicon.net", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap copy_32px_1230182_easyicon_net {
             get {
                 object obj = ResourceManager.GetObject("copy_32px_1230182_easyicon.net", resourceCulture);
@@ -146,6 +156,16 @@ namespace MobileBox.Properties {
         internal static System.Drawing.Bitmap down_arrow_32px_1236472_easyicon_net {
             get {
                 object obj = ResourceManager.GetObject("down_arrow_32px_1236472_easyicon.net", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap fcmType {
+            get {
+                object obj = ResourceManager.GetObject("fcmType", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +246,26 @@ namespace MobileBox.Properties {
         internal static System.Drawing.Bitmap play_32px_1082335_easyicon_net {
             get {
                 object obj = ResourceManager.GetObject("play_32px_1082335_easyicon.net", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap repairType {
+            get {
+                object obj = ResourceManager.GetObject("repairType", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap repairType1 {
+            get {
+                object obj = ResourceManager.GetObject("repairType1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,9 +483,29 @@ namespace MobileBox.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap type24 {
+            get {
+                object obj = ResourceManager.GetObject("type24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap type3 {
             get {
                 object obj = ResourceManager.GetObject("type3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap type31 {
+            get {
+                object obj = ResourceManager.GetObject("type31", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +576,16 @@ namespace MobileBox.Properties {
         internal static System.Drawing.Bitmap upload_48px_1204394_easyicon1 {
             get {
                 object obj = ResourceManager.GetObject("upload_48px_1204394_easyicon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 删_除 {
+            get {
+                object obj = ResourceManager.GetObject("删 除", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

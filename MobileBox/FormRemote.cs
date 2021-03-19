@@ -16,6 +16,7 @@ namespace MobileBox
         private FormUploa _formuploa;
         private FormSwitch _formSwitch;
         private FormDel _formDel;
+        private FormClear _formClear;
 
 
         private void copyButton_ButtonClick(object Sender)
@@ -27,7 +28,8 @@ namespace MobileBox
             }
             else
             {
-                _formcopy.Activate(); //之前已打开，则给予焦点，置顶。
+                _formcopy.WindowState = FormWindowState.Normal;
+               // _formcopy.Activate(); //之前已打开，则给予焦点，置顶。
             }
         }
 
@@ -40,7 +42,8 @@ namespace MobileBox
             }
             else
             {
-                _formuploa.Activate(); //之前已打开，则给予焦点，置顶。
+                _formuploa.WindowState = FormWindowState.Normal;
+                // _formuploa.Activate(); //之前已打开，则给予焦点，置顶。
             }
         }
 
@@ -53,7 +56,8 @@ namespace MobileBox
             }
             else
             {
-                _formSwitch.Activate(); //之前已打开，则给予焦点，置顶。
+                _formSwitch.WindowState = FormWindowState.Normal;
+                // _formSwitch.Activate(); //之前已打开，则给予焦点，置顶。
             }
         }
 
@@ -71,8 +75,25 @@ namespace MobileBox
             }
             else
             {
-                _formDel.Activate(); //之前已打开，则给予焦点，置顶。
+                _formDel.WindowState = FormWindowState.Normal;
+                //_formDel.Activate(); //之前已打开，则给予焦点，置顶。
             }
         }
+
+        private void ClearButton_ButtonClick(object Sender)
+        {
+            if (_formClear == null || _formClear.IsDisposed)
+            {
+                _formClear = new FormClear();
+                _formClear.Show();
+            }
+            else
+            {
+                _formClear.WindowState = FormWindowState.Normal;
+                //_formDel.Activate(); //之前已打开，则给予焦点，置顶。
+            }
+        }
+
+    
     }
 }

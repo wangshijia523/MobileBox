@@ -34,13 +34,14 @@
             this.openButton = new System.Windows.Forms.Button();
             this.examineButton = new System.Windows.Forms.Button();
             this.coursePanel = new DSControls.DS分组容器();
-            this.comboFastCopy = new DSControls.DS复选框();
+            this.comboHQ = new DSControls.DS复选框();
+            this.comboBranch = new DSControls.DS复选框();
+            this.comboRun = new DSControls.DS复选框();
             this.comboCmd = new DSControls.DS复选框();
             this.comboPythonw = new DSControls.DS复选框();
-            this.comboHQ = new DSControls.DS复选框();
-            this.comboAdb = new DSControls.DS复选框();
             this.comboPython = new DSControls.DS复选框();
-            this.comboBranch = new DSControls.DS复选框();
+            this.comboAdb = new DSControls.DS复选框();
+            this.comboFastCopy = new DSControls.DS复选框();
             this.IpPanel = new DSControls.DS分组容器();
             this.comboIP105 = new DSControls.DS复选框();
             this.comboIP106 = new DSControls.DS复选框();
@@ -63,7 +64,7 @@
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ReadOnly = true;
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logTextBox.Size = new System.Drawing.Size(604, 121);
+            this.logTextBox.Size = new System.Drawing.Size(660, 121);
             this.logTextBox.TabIndex = 25;
             this.logTextBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logTextBox_MouseMove);
             // 
@@ -76,7 +77,7 @@
             this.killButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.killButton.Image = global::MobileBox.Properties.Resources.skull_32px_1082340_easyicon_net;
             this.killButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.killButton.Location = new System.Drawing.Point(507, 138);
+            this.killButton.Location = new System.Drawing.Point(563, 135);
             this.killButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.killButton.Name = "killButton";
             this.killButton.Size = new System.Drawing.Size(110, 31);
@@ -96,7 +97,7 @@
             this.openButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.openButton.Image = global::MobileBox.Properties.Resources.play_32px_1082335_easyicon_net;
             this.openButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.openButton.Location = new System.Drawing.Point(507, 107);
+            this.openButton.Location = new System.Drawing.Point(563, 101);
             this.openButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(110, 31);
@@ -116,7 +117,7 @@
             this.examineButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.examineButton.Image = global::MobileBox.Properties.Resources.check_32px_1082324_easyicon_net;
             this.examineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.examineButton.Location = new System.Drawing.Point(507, 76);
+            this.examineButton.Location = new System.Drawing.Point(563, 72);
             this.examineButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.examineButton.Name = "examineButton";
             this.examineButton.Size = new System.Drawing.Size(110, 31);
@@ -139,21 +140,22 @@
             // coursePanel.Panel1
             // 
             this.coursePanel.Panel.BackColor = System.Drawing.Color.Transparent;
-            this.coursePanel.Panel.Controls.Add(this.comboFastCopy);
+            this.coursePanel.Panel.Controls.Add(this.comboHQ);
+            this.coursePanel.Panel.Controls.Add(this.comboBranch);
+            this.coursePanel.Panel.Controls.Add(this.comboRun);
             this.coursePanel.Panel.Controls.Add(this.comboCmd);
             this.coursePanel.Panel.Controls.Add(this.comboPythonw);
-            this.coursePanel.Panel.Controls.Add(this.comboHQ);
-            this.coursePanel.Panel.Controls.Add(this.comboAdb);
             this.coursePanel.Panel.Controls.Add(this.comboPython);
-            this.coursePanel.Panel.Controls.Add(this.comboBranch);
+            this.coursePanel.Panel.Controls.Add(this.comboAdb);
+            this.coursePanel.Panel.Controls.Add(this.comboFastCopy);
             this.coursePanel.Panel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.coursePanel.Panel.Location = new System.Drawing.Point(3, 24);
             this.coursePanel.Panel.Name = "Panel1";
-            this.coursePanel.Panel.Size = new System.Drawing.Size(332, 69);
+            this.coursePanel.Panel.Size = new System.Drawing.Size(397, 69);
             this.coursePanel.Panel.TabIndex = 1;
             this.coursePanel.Panel.边框颜色 = System.Drawing.Color.Empty;
             this.coursePanel.ShowBorder = true;
-            this.coursePanel.Size = new System.Drawing.Size(338, 96);
+            this.coursePanel.Size = new System.Drawing.Size(403, 96);
             this.coursePanel.TabIndex = 5;
             this.coursePanel.Text = "进程列表";
             this.coursePanel.TitleBackColor = System.Drawing.Color.Silver;
@@ -173,6 +175,27 @@
             this.coursePanel.锚定间距 = 10;
             this.coursePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logTextBox_MouseMove);
             // 
+            // comboRun
+            // 
+            this.comboRun.AutoSize = true;
+            this.comboRun.BackColor = System.Drawing.Color.Transparent;
+            this.comboRun.Checked = true;
+            this.comboRun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboRun.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRun.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboRun.Location = new System.Drawing.Point(243, 5);
+            this.comboRun.MaximumSize = new System.Drawing.Size(148, 20);
+            this.comboRun.MinimumSize = new System.Drawing.Size(148, 20);
+            this.comboRun.Name = "comboRun";
+            this.comboRun.Size = new System.Drawing.Size(148, 20);
+            this.comboRun.TabIndex = 35;
+            this.comboRun.Text = "runcontroler.exe";
+            this.comboRun.勾选符号色 = System.Drawing.Color.Silver;
+            this.comboRun.勾选符号高亮色 = System.Drawing.Color.White;
+            this.comboRun.描边颜色 = System.Drawing.Color.Transparent;
+            this.comboRun.文本 = "runcontroler.exe";
+            this.comboRun.边框色 = System.Drawing.Color.Gray;
+            // 
             // comboFastCopy
             // 
             this.comboFastCopy.AutoSize = true;
@@ -181,7 +204,7 @@
             this.comboFastCopy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboFastCopy.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboFastCopy.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comboFastCopy.Location = new System.Drawing.Point(4, 48);
+            this.comboFastCopy.Location = new System.Drawing.Point(127, 45);
             this.comboFastCopy.MaximumSize = new System.Drawing.Size(116, 20);
             this.comboFastCopy.MinimumSize = new System.Drawing.Size(116, 20);
             this.comboFastCopy.Name = "comboFastCopy";
@@ -203,7 +226,7 @@
             this.comboCmd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboCmd.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCmd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comboCmd.Location = new System.Drawing.Point(111, 26);
+            this.comboCmd.Location = new System.Drawing.Point(3, 25);
             this.comboCmd.MaximumSize = new System.Drawing.Size(77, 20);
             this.comboCmd.MinimumSize = new System.Drawing.Size(77, 20);
             this.comboCmd.Name = "comboCmd";
@@ -225,7 +248,7 @@
             this.comboPythonw.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboPythonw.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPythonw.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comboPythonw.Location = new System.Drawing.Point(199, 26);
+            this.comboPythonw.Location = new System.Drawing.Point(127, 25);
             this.comboPythonw.MaximumSize = new System.Drawing.Size(108, 20);
             this.comboPythonw.MinimumSize = new System.Drawing.Size(108, 20);
             this.comboPythonw.Name = "comboPythonw";
@@ -248,16 +271,16 @@
             this.comboHQ.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboHQ.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboHQ.Location = new System.Drawing.Point(4, 4);
-            this.comboHQ.MaximumSize = new System.Drawing.Size(101, 21);
-            this.comboHQ.MinimumSize = new System.Drawing.Size(101, 21);
+            this.comboHQ.MaximumSize = new System.Drawing.Size(117, 21);
+            this.comboHQ.MinimumSize = new System.Drawing.Size(117, 21);
             this.comboHQ.Name = "comboHQ";
-            this.comboHQ.Size = new System.Drawing.Size(101, 21);
+            this.comboHQ.Size = new System.Drawing.Size(117, 21);
             this.comboHQ.TabIndex = 31;
-            this.comboHQ.Text = "总控GM.exe";
+            this.comboHQ.Text = "总控sjmy.exe";
             this.comboHQ.勾选符号色 = System.Drawing.Color.Silver;
             this.comboHQ.勾选符号高亮色 = System.Drawing.Color.White;
             this.comboHQ.描边颜色 = System.Drawing.Color.Transparent;
-            this.comboHQ.文本 = "总控GM.exe";
+            this.comboHQ.文本 = "总控sjmy.exe";
             this.comboHQ.边框色 = System.Drawing.Color.Gray;
             this.comboHQ.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logTextBox_MouseMove);
             // 
@@ -269,7 +292,7 @@
             this.comboAdb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboAdb.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboAdb.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comboAdb.Location = new System.Drawing.Point(111, 4);
+            this.comboAdb.Location = new System.Drawing.Point(3, 45);
             this.comboAdb.MaximumSize = new System.Drawing.Size(77, 20);
             this.comboAdb.MinimumSize = new System.Drawing.Size(77, 20);
             this.comboAdb.Name = "comboAdb";
@@ -291,7 +314,7 @@
             this.comboPython.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboPython.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPython.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comboPython.Location = new System.Drawing.Point(199, 4);
+            this.comboPython.Location = new System.Drawing.Point(243, 25);
             this.comboPython.MaximumSize = new System.Drawing.Size(100, 20);
             this.comboPython.MinimumSize = new System.Drawing.Size(100, 20);
             this.comboPython.Name = "comboPython";
@@ -313,7 +336,7 @@
             this.comboBranch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBranch.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBranch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comboBranch.Location = new System.Drawing.Point(4, 26);
+            this.comboBranch.Location = new System.Drawing.Point(127, 3);
             this.comboBranch.MaximumSize = new System.Drawing.Size(101, 21);
             this.comboBranch.MinimumSize = new System.Drawing.Size(101, 21);
             this.comboBranch.Name = "comboBranch";
@@ -377,16 +400,16 @@
             this.comboIP105.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboIP105.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboIP105.Location = new System.Drawing.Point(7, 5);
-            this.comboIP105.MaximumSize = new System.Drawing.Size(132, 20);
-            this.comboIP105.MinimumSize = new System.Drawing.Size(132, 20);
+            this.comboIP105.MaximumSize = new System.Drawing.Size(140, 20);
+            this.comboIP105.MinimumSize = new System.Drawing.Size(140, 20);
             this.comboIP105.Name = "comboIP105";
-            this.comboIP105.Size = new System.Drawing.Size(132, 20);
+            this.comboIP105.Size = new System.Drawing.Size(140, 20);
             this.comboIP105.TabIndex = 29;
-            this.comboIP105.Text = "192.168.64.105";
+            this.comboIP105.Text = "192.168.255.131";
             this.comboIP105.勾选符号色 = System.Drawing.Color.Silver;
             this.comboIP105.勾选符号高亮色 = System.Drawing.Color.White;
             this.comboIP105.描边颜色 = System.Drawing.Color.Transparent;
-            this.comboIP105.文本 = "192.168.64.105";
+            this.comboIP105.文本 = "192.168.255.131";
             this.comboIP105.边框色 = System.Drawing.Color.Gray;
             this.comboIP105.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logTextBox_MouseMove);
             // 
@@ -399,16 +422,16 @@
             this.comboIP106.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboIP106.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboIP106.Location = new System.Drawing.Point(7, 25);
-            this.comboIP106.MaximumSize = new System.Drawing.Size(132, 20);
-            this.comboIP106.MinimumSize = new System.Drawing.Size(132, 20);
+            this.comboIP106.MaximumSize = new System.Drawing.Size(140, 20);
+            this.comboIP106.MinimumSize = new System.Drawing.Size(140, 20);
             this.comboIP106.Name = "comboIP106";
-            this.comboIP106.Size = new System.Drawing.Size(132, 20);
+            this.comboIP106.Size = new System.Drawing.Size(140, 20);
             this.comboIP106.TabIndex = 28;
-            this.comboIP106.Text = "192.168.64.106";
+            this.comboIP106.Text = "192.168.255.132";
             this.comboIP106.勾选符号色 = System.Drawing.Color.Silver;
             this.comboIP106.勾选符号高亮色 = System.Drawing.Color.White;
             this.comboIP106.描边颜色 = System.Drawing.Color.Transparent;
-            this.comboIP106.文本 = "192.168.64.106";
+            this.comboIP106.文本 = "192.168.255.132";
             this.comboIP106.边框色 = System.Drawing.Color.Gray;
             this.comboIP106.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logTextBox_MouseMove);
             // 
@@ -421,16 +444,16 @@
             this.comboIP23.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboIP23.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboIP23.Location = new System.Drawing.Point(7, 45);
-            this.comboIP23.MaximumSize = new System.Drawing.Size(124, 20);
-            this.comboIP23.MinimumSize = new System.Drawing.Size(124, 20);
+            this.comboIP23.MaximumSize = new System.Drawing.Size(140, 20);
+            this.comboIP23.MinimumSize = new System.Drawing.Size(140, 20);
             this.comboIP23.Name = "comboIP23";
-            this.comboIP23.Size = new System.Drawing.Size(124, 20);
+            this.comboIP23.Size = new System.Drawing.Size(140, 20);
             this.comboIP23.TabIndex = 27;
-            this.comboIP23.Text = "192.168.64.23";
+            this.comboIP23.Text = "192.168.255.133";
             this.comboIP23.勾选符号色 = System.Drawing.Color.Silver;
             this.comboIP23.勾选符号高亮色 = System.Drawing.Color.White;
             this.comboIP23.描边颜色 = System.Drawing.Color.Transparent;
-            this.comboIP23.文本 = "192.168.64.23";
+            this.comboIP23.文本 = "192.168.255.133";
             this.comboIP23.边框色 = System.Drawing.Color.Gray;
             this.comboIP23.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logTextBox_MouseMove);
             // 
@@ -449,7 +472,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 310);
+            this.ClientSize = new System.Drawing.Size(683, 308);
             this.Controls.Add(this.killButton);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.examineButton);
@@ -491,5 +514,6 @@
         private System.Windows.Forms.Button examineButton;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Button killButton;
+        private DSControls.DS复选框 comboRun;
     }
 }

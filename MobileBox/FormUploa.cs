@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.String;
 
 namespace MobileBox
 {
@@ -20,9 +21,9 @@ namespace MobileBox
             folderComboBox.SelectedIndex = 0;
         }
 
-        private const string Ip105 = @"\\192.168.64.105";
-        private const string Ip106 = @"\\192.168.64.106";
-        private const string Ip23 = @"\\192.168.64.23";
+        private const string Ip105 = @"\\192.168.255.131";
+        private const string Ip106 = @"\\192.168.255.132";
+        private const string Ip23 = @"\\192.168.255.133";
         private string _projectlPath;
         private string _versionlPath;
         private string _folderPath;
@@ -122,7 +123,7 @@ namespace MobileBox
         private void GetVersion(string project)
         {
             versionsComboBox.Items.Clear();
-            ShowMsg(RemoteConnect.ConnectState(@"\\192.168.64.105", "administrator", "www.91.com."));
+            ShowMsg(RemoteConnect.ConnectState(@"\\192.168.255.131", "blacknull", "ndqatest2021.*+"));
             var path = $@"{Ip105}\\developer\\{project}\\data\\script\\AllVersion";
             
             var theFolder = new DirectoryInfo(path);
@@ -142,21 +143,64 @@ namespace MobileBox
 
         private void GetTemplate()
         {
-            _template = string.Empty;
+            _template = Empty;
+            if (projectComboBox.Text == @"developer" || projectComboBox.Text == @"平台控制器")
+            {
+                return;
+            }
+
+
             var tt = new[] {"720x1280", "1080x1920", "1440x2560"};
             var info = new DirectoryInfo(SourcetTextBox.Text);
             if (info.Parent != null)
             {
-                var path = info.Name;
-                foreach (var p in tt)
+                if (Directory.Exists(SourcetTextBox.Text))
                 {
-                    if (path.IndexOf(p, StringComparison.Ordinal)!=-1)
+                    _template = Path.GetFileNameWithoutExtension(SourcetTextBox.Text);
+
+                    if (_template == "case" || _template == "common"|| _template == "environinit")
                     {
-                        _template = path;
-                        _folderPath = _versionlPath + "\\" + folderComboBox.Text + "\\" + _template;
-                        break;
+                        _folderPath = _versionlPath + "\\" + folderComboBox.Text + "\\";
+                        return;
+                    }
+
+                    var path = info.Name;
+                    foreach (var p in tt)
+                    {
+                        if (path.IndexOf(p, StringComparison.Ordinal) != -1)
+                        {
+                            
+                            if (folderComboBox.Text == @"case")
+                            {
+                                _template = $"{info.Parent}";
+                                _template += "\\" + path;
+                            }
+                            else
+                            {
+                                _template = path;
+                            }
+                            _folderPath = _versionlPath + "\\" + folderComboBox.Text + "\\" + _template;
+                            return;
+                        }
+                    }
+
+                    if (folderComboBox.Text == @"case")
+                    {
+                        _folderPath = $@"{_versionlPath}\\{folderComboBox.Text}\\{_template}";
                     }
                 }
+                else
+                {
+                    if (folderComboBox.Text == @"case")
+                    {
+                        _folderPath = _versionlPath + "\\" + folderComboBox.Text + "\\" + info.Parent;
+                        return;
+                    }
+
+                    _folderPath = _versionlPath + "\\" + folderComboBox.Text;
+                }
+                
+                
             }
             
         }
@@ -191,7 +235,7 @@ namespace MobileBox
         private void startButton_Click(object sender, EventArgs e)
         {
             
-            if (SourcetTextBox.Text == string.Empty)
+            if (SourcetTextBox.Text == Empty)
             {
                 MessageBox.Show(@"源目录为空", @"警告");
                 return;
@@ -206,10 +250,11 @@ namespace MobileBox
         {
             
 
+            Console.WriteLine(SourcetTextBox.Text);
             SetEnbled(false);
-            ShowMsg(RemoteConnect.ConnectState(Ip105, "administrator", "www.91.com."));
-            ShowMsg(RemoteConnect.ConnectState(Ip106, "administrator", "www.91.com."));
-            ShowMsg(RemoteConnect.ConnectState(Ip23, "administrator", "www.91.com."));
+            ShowMsg(RemoteConnect.ConnectState(Ip105, "blacknull", "ndqatest2021.*+"));
+            ShowMsg(RemoteConnect.ConnectState(Ip106, "blacknull", "ndqatest2021.*+"));
+            ShowMsg(RemoteConnect.ConnectState(Ip23, "blacknull", "ndqatest2021.*+"));
 
             CopyFolder(SourcetTextBox.Text, $@"{Ip105}{_folderPath}");
             CopyFolder(SourcetTextBox.Text, $@"{Ip106}{_folderPath}");
@@ -230,7 +275,8 @@ namespace MobileBox
                     File.Copy(varFromDirectory,
                         varToDirectory +
                         varFromDirectory.Substring(varFromDirectory.LastIndexOf("\\", StringComparison.Ordinal)), true);
-                    ShowMsg($"{varToDirectory}复制完成。");
+                    ShowMsg(
+                        $"{varToDirectory + varFromDirectory.Substring(varFromDirectory.LastIndexOf("\\", StringComparison.Ordinal))} 复制完成。");
                     dS进度条21.当前值 = 100;
                     return;
                 }

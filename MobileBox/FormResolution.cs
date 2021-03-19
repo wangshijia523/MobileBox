@@ -43,8 +43,8 @@ namespace MobileBox
         {
             if (inputText.Text.EndsWith("720x1280"))
             {
-                if (outText.Text.EndsWith("1080x1920"))
-                {
+                if (outText.Text.EndsWith("1080x1920") || outText.Text.EndsWith("1080x2340"))
+				{
                     dS数字框1.Text = @"1.5";
 
                 }

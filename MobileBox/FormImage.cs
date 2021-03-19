@@ -24,7 +24,8 @@ namespace MobileBox
             }
             else
             {
-                _formresolution.Activate();//之前已打开，则给予焦点，置顶。
+                _formresolution.WindowState = FormWindowState.Normal;
+                //_formresolution.Activate();//之前已打开，则给予焦点，置顶。
             }
         }
 

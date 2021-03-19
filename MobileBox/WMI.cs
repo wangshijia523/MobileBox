@@ -45,66 +45,39 @@ namespace MobileBox
             return "\n";
         }
 
-        public static string CloseProcess(string ip, string userName, string passWord, string processName)
+        public static string CloseProcess(string processName, ManagementScope scope)
         {
             try
             {
-                var process = new Process
+                using (var managementClass = new ManagementClass(scope, new ManagementPath("Win32_Process"), new ObjectGetOptions()))
                 {
-                    StartInfo =
-                    {
-                        FileName = "taskkill.exe",
-                        Arguments = $" /s {ip} /f /t /im \"{processName}\" /U {userName} /P {passWord}",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        CreateNoWindow = true
+                    var inputParams = managementClass.GetMethodParameters("Create");
 
-            }
-                };
+                    inputParams["CommandLine"] = $"taskkill /f /t /im \"{processName}\" ";
 
-                // process.StartInfo.StandardOutputEncoding = Encoding.UTF8;
-
-                // process.OutputDataReceived += (s, e) =>
-                // {
-                // ret += e.Data;
-                // };
-                // process.ErrorDataReceived += (s, e) =>
-                // {
-                // ret += e.Data;
-                // };
-                // process.BeginOutputReadLine();
-                // process.BeginErrorReadLine();
-                process.Start();
-
-                var ret = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
-                process.Close();
-                if (ret != string.Empty)
-                {
-                    return processName + "\n";
+                    var outParams = managementClass.InvokeMethod("Create", inputParams, new InvokeMethodOptions());
                 }
+
             }
             catch (Exception ex)
             {
                 return ex.ToString();
             }
 
-            return "\n";
+            return processName + "\n";
         }
 
-        public static string OpenProcess(string ip, string userName, string passWord, string processName, string taskname)
+        public static string OpenProcess(string ip, string userName, string passWord, string processName)
         {
             try
             {
+                var processPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
                 var p1 = new Process
                 {
                     StartInfo =
                     {
-                        FileName = @"schtasks.exe",
-                        Arguments = $@" /create /F /s {ip} -u {userName} -p {
-                                passWord
-                            } /sc ONCE /st 01:00 /tn {taskname} /tr {processName} /rl HIGHEST ",
+                        FileName =  processPath+"\\"+"Tools\\PsExec.exe",
+                        Arguments = $@" \\{ip} -u {userName} -p {passWord} -i -d {processName}",
                         UseShellExecute = false,
                         RedirectStandardError = true,
                         RedirectStandardOutput = true,
@@ -114,45 +87,68 @@ namespace MobileBox
                     }
                 };
                 p1.Start();
-                p1.StandardError.ReadToEnd();
-                p1.StandardOutput.ReadToEnd();
-
-                // // If there is no schedule task created for ServiceCommandService, create one
-                // if (!string.IsNullOrEmpty(err) && string.IsNullOrEmpty(sop))
-                // {
-                // p1.StartInfo.Arguments =
-                // $@" /create /F /s {ip} -u {userName} -p {
-                // passWord
-                // } /sc ONCE /st 01:00 /tn 01 /tr {processName} /rl HIGHEST ";
-                // p1.Start();
-                // err = p1.StandardError.ReadToEnd();
-                // sop = p1.StandardOutput.ReadToEnd();
-                // if (!sop.Contains("SUCCESS"))
-                // {
-                // throw new Exception($"Create schedule task failed on {ip}");
-                // }
-                /*                }*/
-
-                p1.StartInfo.Arguments = $@" /run /s {ip} -u {userName} -p {passWord} /tn {taskname}";
-                p1.Start();
-
-                p1.StartInfo.Arguments = $@" /Delete /F /s {ip} -u {userName} -p {passWord} /tn {taskname}";
-                p1.Start();
-                p1.StandardError.ReadToEnd();
-                p1.StandardOutput.ReadToEnd();
-
-                // if (!string.IsNullOrEmpty(err) || !sop.Contains("SUCCESS"))
-                // {
-                // throw new Exception($"Run schedule task failed on {ip}");
-                // }
+                var ret = p1.StandardOutput.ReadToEnd();
                 p1.WaitForExit();
                 p1.Close();
-                return processName + "\n";
+                if (ret != string.Empty)
+                {
+                    return processName + "\n";
+                }
             }
             catch (Exception ex)
             {
                 return ex.ToString();
             }
+            return  "\n";
         }
+
+        //public static string CloseProcess(string ip, string userName, string passWord, string processName, ManagementScope scope)
+        //{
+        //    try
+        //    {
+        //        var process = new Process
+        //        {
+        //            StartInfo =
+        //            {
+        //                FileName = "taskkill.exe",
+        //                Arguments = $" /s {ip} /f /t /im \"{processName}\" /U {userName} /P {passWord}",
+        //                UseShellExecute = false,
+        //                RedirectStandardOutput = true,
+        //                RedirectStandardError = true,
+        //                CreateNoWindow = true
+
+        //            }
+        //        };
+
+        //        // process.StartInfo.StandardOutputEncoding = Encoding.UTF8;
+
+        //        // process.OutputDataReceived += (s, e) =>
+        //        // {
+        //        // ret += e.Data;
+        //        // };
+        //        // process.ErrorDataReceived += (s, e) =>
+        //        // {
+        //        // ret += e.Data;
+        //        // };
+        //        // process.BeginOutputReadLine();
+        //        // process.BeginErrorReadLine();
+        //        process.Start();
+
+        //        var ret = process.StandardOutput.ReadToEnd();
+        //        process.WaitForExit();
+        //        process.Close();
+        //        if (ret != string.Empty)
+        //        {
+        //            return processName + "\n";
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ex.ToString();
+        //    }
+
+        //    return "\n";
+        //}
     }
 }
